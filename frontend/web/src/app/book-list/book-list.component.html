@@ -1,0 +1,25 @@
+<div class="People-list">
+    <h2>People List</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First</th>
+          <th>Last</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let People of Peoples">
+          <td>{{ People?.id }}</td>
+          <td>{{ People?.first }}</td>
+          <td>{{ People?.last }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="deletePeople(People?.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary" (click)="addPeople()">Add People</button>
+  </div>
+  
