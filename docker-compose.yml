@@ -9,9 +9,18 @@ services:
     ports:
       - "5444:5432"
 
-  tipludb:
+  backend:
     build: backend/
     depends_on:
       - db
     ports:
       - "5225:80"
+
+  frontend:
+    build: frontend/
+    depends_on:
+      - db
+      - backend
+    ports:
+      - "1234:80"
+  
