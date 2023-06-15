@@ -18,5 +18,6 @@ namespace web
         {
             optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DefaultConnection"));
         }
+        
     }
 }
