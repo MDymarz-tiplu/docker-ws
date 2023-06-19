@@ -8,7 +8,7 @@ RUN npm install
 
 RUN npm run build 
 
-FROM nginx:alpine
+FROM nginx:alpine AS runtime
 
 COPY --from=build /app/dist/web/ /usr/share/nginx/html
 

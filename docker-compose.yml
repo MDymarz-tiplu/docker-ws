@@ -1,21 +1,6 @@
 version: '3.9'
 
 services:
-  db:
-    image: postgres:latest
-    environment:
-      POSTGRES_PASSWORD: "4242"
-      POSTGRES_DB: "docker-ws"
-    ports:
-      - "5444:5432"
-
-  backend:
-    build: backend/
-    depends_on:
-      - db
-    ports:
-      - "5225:80"
-
   frontend:
     build: frontend/
     depends_on:

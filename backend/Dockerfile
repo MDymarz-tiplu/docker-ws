@@ -1,17 +1,12 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 
-WORKDIR /app
-
-COPY . .
-
-RUN dotnet publish -o publish web/web.csproj
+# Set working Dir
+# Copy ur Code u wanna build
+# (restore, build, test), publish ur dotnet code into a (portable) artifact folder
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 
-WORKDIR /app
-
-COPY --from=build /app/publish .
-
-ENTRYPOINT ["dotnet", "./web.dll"]
-
-EXPOSE 80
+# set working dir
+# Get published Code / Artifact Folder from previous Layer
+# Set Entrypoint
+# Expose port (it's 80)
